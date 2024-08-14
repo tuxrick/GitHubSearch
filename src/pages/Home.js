@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography } from '@mui/material';
-import { getUserProfile, getUserRepos } from '../components/services';
+import { getUserProfile, getUserRepos } from '../components/Services';
+import User from '../components/User';
+import Repos from '../components/Repos';
 
 const Home = () => {
 
@@ -36,8 +38,8 @@ const Home = () => {
     
           {error && <Typography color="error" mt={2}>{error}</Typography>}
           
-          {user && <>userData</>}
-          {repos && <>repoData</>}
+          {user && <User user={user} />}
+          {repos.length > 0 && <Repos repos={repos} />}
         </Box>
       );
 };
